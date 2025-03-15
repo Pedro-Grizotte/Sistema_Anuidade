@@ -17,7 +17,16 @@
                     if($this->validateNegocio->authenticacao($email, $senha)) {
                         // Se a autenticação for bem sucedida, redireciona para
                         // a página de client.php
-                        header("Location: ../views/client.php");
+                        $user = $this->validateNegocio->getUserByEmail($email);
+                        session_start();
+                        $_SESSION['id'] = $user['IDAssociado'];
+                        $_SESSION['nome'] = $user['Nome'];
+                        if ($email == 'admin@gmail.com') {
+                            header("Location: ../views/admin.php?nome=" . urlencode($user['Nome']));
+                        } else {
+                            header("Location: ../views/client.php?nome=" . urlencode($user['Nome']));
+                        }
+                        
                     } else {
                         // Se a autenticação falhar, redireciona para a página de login.php
                         echo "Credenciais inválidas";

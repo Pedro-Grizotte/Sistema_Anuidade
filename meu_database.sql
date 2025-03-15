@@ -12,3 +12,9 @@ create table Associados (
     Email varchar(250) not null,
     Senha varchar(250) not null
 );
+
+create table Anuidade (
+    IDAnuidade int primary key auto_increment,
+    Ano int not null,
+    Valor decimal(10,2) not null
+);

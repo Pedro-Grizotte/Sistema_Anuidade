@@ -14,5 +14,9 @@
             }
             return false;
         }
+        public function getUserByEmail($email) {
+            // Recebe o email da controller, e busca o usuário
+            return $this->validateData->getUserByEmail($email);
+        }
     }
 ?>

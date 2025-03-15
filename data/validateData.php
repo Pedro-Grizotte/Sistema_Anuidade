@@ -17,5 +17,16 @@
                 return false;
             }
         }
+        public function getUserByEmail($email) {
+            try {
+                $stmt = $this->database->prepare("SELECT * FROM Associados WHERE Email = ?");
+                $stmt->bindValue(1, $email);
+                $stmt->execute();
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>
