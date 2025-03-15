@@ -39,5 +39,23 @@
         public function setSenha($senha) {
             $this->senha = $senha;
         }
+
+        // Validação de usuário abaixo
+
+        private $validacao_email;
+        private $validacao_senha;
+
+        function getValidacao_email() {
+            return $this->validacao_email;
+        }
+        function setValidacao_email($validacao_email) {
+            $this->validacao_email = $validacao_email;
+        }
+        function getValidacao_senha() {
+            return $this->validacao_senha;
+        }
+        function setValidacao_senha($validacao_senha) {
+            $this->validacao_senha = $validacao_senha;
+        }
     }
 ?>

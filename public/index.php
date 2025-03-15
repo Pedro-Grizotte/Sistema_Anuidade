@@ -2,11 +2,15 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     require_once '../controllers/insertController.php';
+    require_once '../controllers/validateController.php';
     $controller = new InsertController();
+    $validacao = new ValidateController();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(isset($_POST['submit'])) {
+        if (isset($_POST['submit'])) {
             $controller->registrar();
+        } else {
+            $validacao->validacao();
         }
     }
 ?>
