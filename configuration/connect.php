@@ -18,8 +18,8 @@
                 die();
             }
         }
-        public function getInstance() {
-            if(self::$instance == null) {
+        public static function getInstance() {
+            if(!self::$instance) {
                 self::$instance = new Connect();
             }
             return self::$instance;

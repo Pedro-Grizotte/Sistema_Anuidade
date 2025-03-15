@@ -1,3 +1,15 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    require_once '../controllers/insertController.php';
+    $controller = new InsertController();
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST['submit'])) {
+            $controller->registrar();
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

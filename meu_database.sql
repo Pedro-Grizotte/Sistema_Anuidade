@@ -4,3 +4,11 @@ create database Anuidade;
 
 use Anuidade;
 
+create table Associados (
+    IDAssociados int primary key auto_increment,
+    Nome varchar(250) not null,
+    CPF varchar(20) not null,
+    DataFiliacao date not null,
+    Email varchar(250) not null,
+    Senha varchar(250) not null
+);
