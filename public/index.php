@@ -28,17 +28,17 @@
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                        <input type="password" value="test" name="password" required>
-                        <label>Password</label>
+                        <input type="password" value="test" name="senha" required>
+                        <label>Senha</label>
                     </div>
                     <div class="remember-forgot">
-                        <label><input type="checkbox" name="checkbox">Remember me</label>
-                        <a href="#">Forgot Password?</a>
+                        <label><input type="checkbox" name="checkbox">Lembre de mim</label>
+                        <a href="#">Esqueceu a senha?</a>
                     </div>
                     <button type="submit" class="btn_login">Login</button>
                     <div class="login-register">
-                        <p>Don't have an account? 
-                            <a href="#" class="register-link">Register</a>
+                        <p>Não possui uma conta? 
+                            <a href="#" class="register-link">Registrar</a>
                         </p>
                     </div>
                 </form>
@@ -49,8 +49,17 @@
                 <form action="index.php" method="POST">
                     <div class="input-box">
                         <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        <input type="text" name="username" required>
-                        <label>Username</label>
+                        <input type="text" name="nome" required>
+                        <label>Nome</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="man"></ion-icon></span>
+                        <input type="text" name="cpf" required>
+                        <label>CPF</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="calendar-number"></ion-icon></span>
+                        <input type="date" name="data" required>
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="mail"></ion-icon></span>
@@ -59,17 +68,12 @@
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                        <input type="password" name="password" required>
-                        <label>Password</label>
+                        <input type="password" name="senha" required>
+                        <label>Senha</label>
                     </div>
-                    <div class="remember-forgot">
-                        <label>
-                            <input type="checkbox" name="checkbox" required>I agree to the terms & condicions
-                        </label>
-                    </div>
-                    <button type="submit" name="submit" class="btn_register">Register</button>
+                    <button type="submit" name="submit" class="btn_register">Registrar</button>
                     <div class="login-register">
-                        <p>Already have an account? 
+                        <p>Já possui uma conta? 
                             <a href="#" class="login-link">Login</a>
                         </p>
                     </div>

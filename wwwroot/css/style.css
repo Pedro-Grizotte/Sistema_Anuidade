@@ -82,6 +82,7 @@ header {
 
 .wrapper {
   position: relative;
+  top: 30px;
   width: 400px;
   height: 440px;
   border: 2px solid rgba(225, 255, 255, .5);
@@ -101,7 +102,7 @@ header {
 }
 
 .wrapper.active {
-  height: 520px;
+  height: 600px;
 }
 
 .wrapper .form-box {
