@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-box register">
-                <h2>Registration</h2>
+                <h2>Cadastro</h2>
                 <form action="index.php" method="POST">
                     <div class="input-box">
                         <span class="icon"><ion-icon name="person"></ion-icon></span>
