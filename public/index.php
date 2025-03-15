@@ -77,7 +77,7 @@
             </div>
         </div>
     </main>
-    <script src="../Views/wwwroot/js/site.js"></script>
+    <script src="../wwwroot/js/site.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
