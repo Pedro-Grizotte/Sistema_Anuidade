@@ -17,7 +17,7 @@
                 <a href="./client.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Payments">
-                <a href=""><ion-icon name="card-outline"></ion-icon></a>
+                <a href="./payments.php"><ion-icon name="card-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Settings">
                 <a href=""><ion-icon name="settings-outline"></ion-icon></a>

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Anuidade</title>
-    <link rel="stylesheet" href="../wwwroot/css/style_admin.css">
+    <link rel="stylesheet" href="../wwwroot/css/style_payments.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -32,52 +32,13 @@
 
         <div class="main-content">
             <div class="header">
-                <h1>Bem vindo <?php echo $_SESSION['nome'];?>!</h1>
+                <h1>Anuidades</h1>
                 <div class="search-bar">
                     <span>🔍</span>
                     <input type="text" placeholder="Search" />
                 </div>
             </div>
-
-            <div class="stats">
-                <div class="stat-card">
-                  <h3>Total de Associados</h3>
-                  <div class="stat-value">
-                    1200
-                  </div>
-                </div>
-                <div class="stat-card">
-                  <h3>Anuidades</h3>
-                  <div class="stat-value">
-                    4.500K
-                    <?php
-
-                    ?>
-                    <span>+45%</span>
-                  </div>
-                </div>
-            </div>
-
             <div class="chart-container">
-                <div class="container my-5">
-                    <h2>Lista de Associados</h2>
-                    <br>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>CPF</th>
-                                <th>Inadimplente</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>
