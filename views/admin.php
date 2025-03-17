@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    require_once '../controllers/usersController.php';
+    $controller = new usersController();
+    $controller->getTotalUsers();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +45,7 @@
                 <div class="stat-card">
                   <h3>Total de Associados</h3>
                   <div class="stat-value">
-                    1200
+                    <?php echo $controller->getTotalUsers(); ?>
                   </div>
                 </div>
                 <div class="stat-card">
