@@ -1,9 +1,12 @@
 <?php
     require_once '../controllers/usersController.php';
+    require_once '../controllers/anuidadeController.php';
     $controller = new usersController();
+    $anuidadeController = new anuidadeController();
     session_start();
     $controller->getTotalUsers();
     $controller->getUsers();
+    $anuidadeController->getTotalAnuidades();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +56,7 @@
                 <div class="stat-card">
                   <h3>Anuidades</h3>
                   <div class="stat-value">
-                    <?php ?>
+                    <?php echo $anuidadeController->getTotalAnuidades(); ?>
                   </div>
                 </div>
             </div>

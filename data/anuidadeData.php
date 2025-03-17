@@ -25,5 +25,13 @@
                 echo 'Error ao verificar anuidade: ' . $e->getMessage();
             }
         }
+        public function getTotalAnuidades() {
+            try {
+                $stmt = $this->database->query("SELECT COUNT(*) FROM Anuidade");
+                return $stmt->fetchColumn();
+            } catch(PDOException $e) {
+                echo 'Error ao obter total de anuidades: ' . $e->getMessage();
+            }
+        }
     }
 ?>

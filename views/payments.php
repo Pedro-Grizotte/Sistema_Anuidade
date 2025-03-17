@@ -69,16 +69,25 @@
                             <tr>
                                 <th scope="col">Data</th>
                                 <th scope="col">Valor</th>
+                                <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Ainda em Pendência -->
+                            <tr>
+                                <td>2022-01-01</td>
+                                <td>R$110,00</td>
+                                <td>
+                                    <button id="editBtn" class="btn btn-primary btn-sm turned-button">Editar</button>
+                                    <button id="deleteBtn" class="btn btn-danger btn-sm">Excluir</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../wwwroot/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 

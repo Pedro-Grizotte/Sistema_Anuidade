@@ -16,7 +16,7 @@
         public function getUsers() {
             try {
                 $users = $this->usersNegocio->getUsers(); 
-                return $users;   
+                return $users;
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }

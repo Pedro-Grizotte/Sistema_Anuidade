@@ -15,5 +15,12 @@
             $anuidade->setValor($valor);
             return $this->anuidadeData->registrarAnuidade($anuidade);
         }
+        public function getTotalAnuidades() {
+            try {
+                return $this->anuidadeData->getTotalAnuidades();
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>
