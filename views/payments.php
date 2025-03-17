@@ -1,5 +1,13 @@
 <?php
     session_start();
+    require_once '../controllers/anuidadeController.php';
+    $controller = new AnuidadeController();
+    $controller->registrarAnuidade();
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST['submit'])) {
+            $controller->registrarAnuidade();
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

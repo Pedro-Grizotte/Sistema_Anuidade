@@ -15,7 +15,6 @@ create table Associados (
 
 create table Anuidade (
     IDAnuidade int primary key auto_increment,
-    Ano int not null,
+    Ano date not null,
     Valor decimal(10,2) not null
 );
-alter table Anuidade add column Inadimplente varchar(10) not null;
