@@ -1,7 +1,9 @@
 <?php
     require_once '../controllers/usersController.php';
     $controller = new usersController();
+    session_start();
     $controller->getTotalUsers();
+    $controller->getUsers();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +21,7 @@
                 <a href="./client.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Payments">
-                <a href="#"><ion-icon name="card-outline"></ion-icon></a>
+                <a href="./payments.php"><ion-icon name="card-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Settings">
                 <a href=""><ion-icon name="settings-outline"></ion-icon></a>
@@ -51,11 +53,7 @@
                 <div class="stat-card">
                   <h3>Anuidades</h3>
                   <div class="stat-value">
-                    4.500K
-                    <?php
-
-                    ?>
-                    <span>+45%</span>
+                    <?php ?>
                   </div>
                 </div>
             </div>
@@ -75,7 +73,23 @@
                         </thead>
                         <tbody>
                             <?php
-                                
+                                $users = [
+                                    ['id' => 1, 'nome' => 'Pedro Henrique Carvalho Grizotte', 'cpf' => '017.551.036-97'],
+                                    ['id' => 2, 'nome' => 'Ana Carolina da Silva Germano', 'cpf' => '152.025.056-80'],
+                                    ['id' => 3, 'nome' => 'admin', 'cpf' => '000.000.000-00']
+                                ];
+
+                                if (!empty($users)) {
+                                    foreach ($users as $user) {
+                                        echo '<tr>';
+                                        echo '<td>' . htmlspecialchars($user['id']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($user['nome']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($user['cpf']) . '</td>';
+                                        echo '</tr>';
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='4'>Nenhum usuário encontrado.</td></tr>";
+                                }
                             ?>
                         </tbody>
                     </table>

@@ -18,3 +18,4 @@ create table Anuidade (
     Ano int not null,
     Valor decimal(10,2) not null
 );
+alter table Anuidade add column Inadimplente varchar(10) not null;

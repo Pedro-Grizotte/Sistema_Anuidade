@@ -6,8 +6,11 @@
         public function __construct() {
             $this->usersData = new UsersData();
         }
-        public function getTotalUsers($users) {
-            return $this->usersData->getTotalUsers($users);
+        public function getTotalUsers() {
+            return $this->usersData->getTotalUsers();
+        }
+        public function getUsers() {
+            return $this->usersData->getUsers();
         }
     }
 ?>
