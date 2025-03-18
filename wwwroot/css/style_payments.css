@@ -234,7 +234,40 @@ form {
     font-weight: 600;
 }
 
+.btn_excluir {
+    position: relative;
+    top: 190px;
+    width: 100%;
+    height: 48px;
+    background: #dc3545;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
 #editPopup {
+    display: none; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    width: 400px;
+    height: 440px; 
+    transform: translate(-50%, -50%); 
+    background-color:white; 
+    border: 2px solid rgba(255, 255, 255, .5);
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    padding:20px; 
+    z-index:1000;
+    transition: transform .5s ease, height .2s ease;
+}
+
+#deletePopup {
     display: none; 
     position: fixed; 
     top: 50%; 
@@ -267,7 +300,24 @@ form {
     border-bottom-left-radius: 20px;
     cursor: pointer;
     z-index: 10000;
-  }
+}
+
+#deletePopup .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 10000;
+}
 
 #overlay {
     display: none; 

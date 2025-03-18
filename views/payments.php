@@ -80,8 +80,8 @@
                                         <td><?php echo htmlspecialchars($anuidade['Ano']); ?></td>
                                         <td><?php echo "R$ " . htmlspecialchars($anuidade['Valor']); ?></td>
                                         <td>
-                                            <button id="editBtn" onclick="openEditPopup()" class="btn btn-primary btn-sm turned-button">Editar</button>
-                                            <button id="deleteBtn" class="btn btn-danger btn-sm">Excluir</button>
+                                            <button id="editBtn" onclick="openEditPopup()" class="btn btn-outline-success btn-sm turned-button">Editar</button>
+                                            <button id="deleteBtn" onclick="openDeletePopup()" class="btn btn-danger btn-sm">Excluir</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -105,6 +105,18 @@
                                 <i><ion-icon name="logo-usd"></ion-icon></i>
                             </div>
                             <button type="submit" name="submit_edit" class="btn_anuidade">Editar</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="deletePopup">
+                    <span class="icon-close">
+                        <ion-icon name="close-outline" onclick="closeDeletePopup()"></ion-icon>
+                    </span>
+                    <div class="form-box delete">
+                        <form class="formulario-box" action="" method="POST">
+                            <h2>Excluir Anuidade</h2>
+                            <label>Tem certeza que deseja excluir a anuidade?</label>
+                            <button type="submit" name="submit_delete" class="btn_excluir">Excluir</button>
                         </form>
                     </div>
                 </div>

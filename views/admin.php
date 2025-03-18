@@ -75,19 +75,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                                if (!empty($users)) {
-                                    foreach ($users as $user) {
-                                        echo '<tr>';
-                                        echo '<td>' . htmlspecialchars($user['ID']) . '</td>';
-                                        echo '<td>' . htmlspecialchars($user['NOME']) . '</td>';
-                                        echo '<td>' . htmlspecialchars($user['CPF']) . '</td>';
-                                        echo '</tr>';
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='4'>Nenhum usuário encontrado.</td></tr>";
-                                }
-                            ?>
+                            <?php if(!empty($users)): ?>
+                                <?php foreach($users as $user): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($user['ID']); ?></td>
+                                        <td><?php echo htmlspecialchars($user['NOME']); ?></td>
+                                        <td><?php echo htmlspecialchars($user['CPF']); ?></td>
+                                    </tr>
+                                <?php  endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="4">Nenhum associado encontrado.</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
