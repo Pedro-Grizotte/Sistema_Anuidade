@@ -5,7 +5,7 @@
     $anuidadeController = new anuidadeController();
     session_start();
     $controller->getTotalUsers();
-    $controller->getUsers();
+    $users = $controller->getUsers();
     $anuidadeController->getTotalAnuidades();
 ?>
 <!DOCTYPE html>
@@ -14,14 +14,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Anuidade</title>
-    <link rel="stylesheet" href="../wwwroot/css/style_admin.css">
+    <link rel="stylesheet" href="../wwwroot/css/style_gestor.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <div class="dashboard">
         <div class="sidebar">
             <div class="sidebar-icon active" data-tooltip="Home">
-                <a href="./client.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
+                <a href="./admin.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Payments">
                 <a href="./payments.php"><ion-icon name="card-outline"></ion-icon></a>
@@ -76,18 +76,12 @@
                         </thead>
                         <tbody>
                             <?php
-                                $users = [
-                                    ['id' => 1, 'nome' => 'Pedro Henrique Carvalho Grizotte', 'cpf' => '017.551.036-97'],
-                                    ['id' => 2, 'nome' => 'Ana Carolina da Silva Germano', 'cpf' => '152.025.056-80'],
-                                    ['id' => 3, 'nome' => 'admin', 'cpf' => '000.000.000-00']
-                                ];
-
                                 if (!empty($users)) {
                                     foreach ($users as $user) {
                                         echo '<tr>';
-                                        echo '<td>' . htmlspecialchars($user['id']) . '</td>';
-                                        echo '<td>' . htmlspecialchars($user['nome']) . '</td>';
-                                        echo '<td>' . htmlspecialchars($user['cpf']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($user['ID']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($user['NOME']) . '</td>';
+                                        echo '<td>' . htmlspecialchars($user['CPF']) . '</td>';
                                         echo '</tr>';
                                     }
                                 } else {

@@ -24,3 +24,14 @@ iconClose.addEventListener('click', ()=> {
     wrapper.classList.remove('active-popup');
 });
 
+function openEditPopup() {
+    document.getElementById('editPopup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+function closeEditPopup() {
+    iconClose.addEventListener('click', ()=> {
+        document.getElementById('editPopup').style.display = 'none';
+    }); 
+    document.getElementById('overlay').style.display = 'none';
+}

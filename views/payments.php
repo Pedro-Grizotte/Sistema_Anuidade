@@ -3,6 +3,7 @@
     require_once '../controllers/anuidadeController.php';
     $controller = new AnuidadeController();
     $controller->registrarAnuidade();
+    $anuidades = $controller->getAnuidade();
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(isset($_POST['submit'])) {
             $controller->registrarAnuidade();
@@ -15,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Anuidade</title>
-    <link rel="stylesheet" href="../wwwroot/css/style_anuidades.css">
+    <link rel="stylesheet" href="../wwwroot/css/style_payments.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -48,10 +49,10 @@
             </div>
             <div class="chart-container">
                 <div class="form-box anuidade">
-                    <form action="" method="POST">
+                    <form action="./payments.php" method="POST">
                         <h2>Registrar Anuidade</h2>
                         <div class="input-box">
-                            <input type="date" name="data"required>
+                            <input type="number" name="ano" placeholder="Ano" required>
                             <i><ion-icon name="calendar-number"></ion-icon></i>
                         </div>
                         <div class="input-box">
@@ -67,23 +68,47 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Data</th>
+                                <th scope="col">Ano</th>
                                 <th scope="col">Valor</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2022-01-01</td>
-                                <td>R$110,00</td>
-                                <td>
-                                    <button id="editBtn" class="btn btn-primary btn-sm turned-button">Editar</button>
-                                    <button id="deleteBtn" class="btn btn-danger btn-sm">Excluir</button>
-                                </td>
-                            </tr>
+                            <?php if(!empty($anuidades)): ?>
+                                <?php foreach($anuidades as $anuidade): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($anuidade['Ano']); ?></td>
+                                        <td><?php echo "R$ " . htmlspecialchars($anuidade['Valor']); ?></td>
+                                        <td>
+                                            <button id="editBtn" onclick="openEditPopup()" class="btn btn-primary btn-sm turned-button">Editar</button>
+                                            <button id="deleteBtn" class="btn btn-danger btn-sm">Excluir</button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="3">Nenhuma anuidade encontrada</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
+                <div id="editPopup">
+                    <span class="icon-close">
+                        <ion-icon name="close-outline" onclick="closeEditPopup()"></ion-icon>
+                    </span>
+                    <div class="form-box edit">
+                        <form action="" method="POST">
+                            <h2>Editar Anuidade</h2>
+                            <div class="input-box">
+                                <input type="number" name="valor" placeholder="valor" required>
+                                <i><ion-icon name="logo-usd"></ion-icon></i>
+                            </div>
+                            <button type="submit" name="submit_edit" class="btn_anuidade">Editar</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="overlay"></div>
             </div>
         </div>
     </div>

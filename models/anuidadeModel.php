@@ -2,14 +2,14 @@
     require_once '../configuration/connect.php';
 
     class AnuidadeModel {
-        private $data;
+        private $ano;
         private $valor;
 
-        public function getData() {
-            return $this->data;
+        public function getAno() {
+            return $this->ano;
         }
-        public function setData($data) {
-            $this->data = $data;
+        public function setAno($ano) {
+            $this->ano = $ano;
         }
         public function getValor() {
             return $this->valor;
