@@ -12,7 +12,7 @@
                 $stmt = $this->database->prepare("INSERT INTO Associados (Nome, CPF, DataFiliacao, Email, Senha) VALUES (?,?,?,?,?)");
                 $stmt->bindValue(1, $usuario->getNome());
                 $stmt->bindValue(2, $usuario->getCpf());
-                $stmt->bindValue(3, $usuario->getData());
+                $stmt->bindValue(3, $usuario->getAno());
                 $stmt->bindValue(4, $usuario->getEmail());
                 $stmt->bindValue(5, $usuario->getSenha());
                 $stmt->execute();

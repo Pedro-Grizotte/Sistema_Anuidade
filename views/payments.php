@@ -3,10 +3,16 @@
     require_once '../controllers/anuidadeController.php';
     $controller = new AnuidadeController();
     $controller->registrarAnuidade();
+    $controller->editAnuidade();
     $anuidades = $controller->getAnuidade();
+    
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(isset($_POST['submit'])) {
+        if (isset($_POST['submit'])) {
             $controller->registrarAnuidade();
+        } elseif(isset($_POST['submit_edit'])) {
+            $controller->editAnuidade();
+        } else {
+            echo "Erro ao realizar ação";
         }
     }
 ?>
@@ -35,7 +41,7 @@
                 <a href=""><ion-icon name="information-circle-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Logout">
-                <ion-icon name="close-outline"></ion-icon>
+                <a href="../public/index.php"><ion-icon name="close-outline"></ion-icon></a>
             </div>
         </div>
 
@@ -93,13 +99,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="editPopup">
+                <div id="editPopup" style="display: none;">
                     <span class="icon-close">
                         <ion-icon name="close-outline" onclick="closeEditPopup()"></ion-icon>
                     </span>
                     <div class="form-box edit">
                         <form action="" method="POST">
                             <h2>Editar Anuidade</h2>
+                            <input type="hidden" name="ano" value="<?php echo $anuidade['Ano']; ?>">
                             <div class="input-box">
                                 <input type="number" name="valor" placeholder="valor" required>
                                 <i><ion-icon name="logo-usd"></ion-icon></i>
@@ -108,7 +115,7 @@
                         </form>
                     </div>
                 </div>
-                <div id="deletePopup">
+                <div id="deletePopup" style="display: none;">
                     <span class="icon-close">
                         <ion-icon name="close-outline" onclick="closeDeletePopup()"></ion-icon>
                     </span>
@@ -124,10 +131,10 @@
             </div>
         </div>
     </div>
-    <script src="../wwwroot/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+    
+    <script src="../wwwroot/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

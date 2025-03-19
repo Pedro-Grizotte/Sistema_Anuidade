@@ -5,7 +5,7 @@
 
         private $nome;
         private $cpf;
-        private $data;
+        private $ano;
         private $email;
         private $senha;
 
@@ -21,11 +21,11 @@
         public function setCpf($cpf) {
             $this->cpf = $cpf;
         }
-        public function getData() {
-            return $this->data;
+        public function getAno() {
+            return $this->ano;
         }
-        public function setData($data) {
-            $this->data = $data;
+        public function setAno($ano) {
+            $this->ano = $ano;
         }
         public function getEmail() {
             return $this->email;

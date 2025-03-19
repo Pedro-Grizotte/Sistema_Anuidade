@@ -41,5 +41,15 @@
                 echo 'Error ao obter anuidade: ' . $e->getMessage();
             }
         }
+        public function editAnuidade($ano, $valor) {
+            try {
+                $stmt = $this->database->prepare("UPDATE Anuidade SET Valor = ? WHERE Ano = ?");
+                $stmt->bindValue(1, $ano);
+                $stmt->bindValue(2, $valor);
+                $stmt->execute();
+            } catch(PDOException $e) {
+                echo 'Error ao editar anuidade: ' . $e->getMessage();
+            }
+        }
     }
 ?>

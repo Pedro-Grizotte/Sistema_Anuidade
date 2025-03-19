@@ -34,16 +34,12 @@ function openDeletePopup() {
     document.getElementById('overlay').style.display = 'block';
 }
 
-function closeDeletePopup() {
-    iconClose.addEventListener('click', () => {
-        document.getElementById('deletePopup').style.display = 'none';
-    });
+function closeEditPopup() {
+    document.getElementById('editPopup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }
 
-function closeEditPopup() {
-    iconClose.addEventListener('click', ()=> {
-        document.getElementById('editPopup').style.display = 'none';
-    }); 
+function closeDeletePopup() {
+    document.getElementById('deletePopup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }

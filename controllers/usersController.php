@@ -21,5 +21,31 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        public function getAnuidade() {
+            try {
+                $anuidade = $this->usersNegocio->getAnuidade();
+                return $anuidade;
+            } catch(PDOException $e) {  
+                echo "Error: " . $e->getMessage();
+            }
+        }
+        public function getAnuidadesUsuarios($id) {
+            try {
+                session_start();
+                $id = $_SESSION['id'];
+                return $this->usersNegocio->getAnuidadeUsuarios($id);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+        public function getAnuidadesDevedoras($id) {
+            try {
+                session_start();
+                $id = $_SESSION['id'];
+                return $this->usersNegocio->getAnuidadesDevedoras($id);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>

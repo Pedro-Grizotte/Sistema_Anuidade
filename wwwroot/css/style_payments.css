@@ -267,7 +267,7 @@ form {
     transition: transform .5s ease, height .2s ease;
 }
 
-#deletePopup {
+.deletePopup {
     display: none; 
     position: fixed; 
     top: 50%; 
@@ -302,7 +302,7 @@ form {
     z-index: 10000;
 }
 
-#deletePopup .icon-close {
+.deletePopup .icon-close {
     position: absolute;
     top: 0;
     right: 0;

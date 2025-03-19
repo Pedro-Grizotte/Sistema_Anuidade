@@ -29,5 +29,12 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        public function editAnuidade($valor, $ano) {
+            try {
+                return $this->anuidadeData->editAnuidade($valor, $ano);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>

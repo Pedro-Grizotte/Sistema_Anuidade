@@ -19,7 +19,7 @@
                         // a página de client.php
                         $user = $this->validateNegocio->getUserByEmail($email);
                         session_start();
-                        $_SESSION['id'] = $user['IDAssociado'];
+                        $_SESSION['id'] = $user['IDAssociados'];
                         $_SESSION['nome'] = $user['Nome'];
                         if ($email == 'admin@gmail.com') {
                             header("Location: ../views/admin.php?nome=" . urlencode($user['Nome']));

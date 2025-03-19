@@ -23,5 +23,30 @@
                 return [];
             }
         }
+        public function getAnuidade() {
+            try {
+                $stmt = $this->database->query("SELECT * FROM Anuidade");
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+                return [];
+            }
+        }
+        public function getAnuidadesUsuario($id) {
+            try {
+                $stmt = $this->database->query("select count(AssociadoID) from AnuidadeAssociados where AssociadoID = ".$id."");
+                return $stmt->fetchColumn();
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
+        public function getAnuidadesDevedoras($id) {
+            try {
+                $stmt = $this->database->query("select count(AssociadoID) from AnuidadeAssociados where AssociadoID = ".$id." and Pago = 0");
+                return $stmt->fetchColumn();
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
     }
 ?>

@@ -18,3 +18,18 @@ create table Anuidade (
     Ano date not null,
     Valor decimal(10,2) not null
 );
+
+create table AnuidadeAssociados (
+    IDAnuidadeAssociados int primary key auto_increment,
+    AssociadosID int not null,
+    Ano int not null,
+    Pago tinyint(1)
+);
+
+/* Adicionando Foreign Key na Tabela AnuidadeAssociados */
+alter table AnuidadeAssociados
+add foreign key(AssociadosID)
+references Associados(IDAssociados);
+
+ 
+

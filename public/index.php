@@ -75,7 +75,8 @@
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="calendar-number"></ion-icon></span>
-                        <input type="date" name="data" required>
+                        <input type="number" name="ano" required>
+                        <label>Ano de Filiação</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="mail"></ion-icon></span>

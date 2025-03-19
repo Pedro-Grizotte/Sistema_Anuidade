@@ -6,7 +6,7 @@
         public function __construct() {
             $this->insertData = new InsertData();
         }
-        public function registrar($nome, $cpf, $data, $email, $senha) {
+        public function registrar($nome, $cpf, $ano, $email, $senha) {
             if($this->insertData->verificacao($nome, $email)) {
                 throw new Exception("Usuário já cadastrado ao sistema!");
             }
@@ -17,7 +17,7 @@
             $usuario = new UsuariosModel();
             $usuario->setNome($nome);
             $usuario->setCpf($cpf);
-            $usuario->setData($data);
+            $usuario->setAno($ano);
             $usuario->setEmail($email);
             $usuario->setSenha($senhaHash);
             return $this->insertData->registrar($usuario);

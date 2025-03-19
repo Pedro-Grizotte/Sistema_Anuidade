@@ -12,5 +12,14 @@
         public function getUsers() {
             return $this->usersData->getUsers();
         }
+        public function getAnuidade() {
+            return $this->usersData->getAnuidade();
+        }
+        public function getAnuidadeUsuarios($id) {
+            return $this->usersData->getAnuidadesUsuario($id);
+        }
+        public function getAnuidadesDevedoras($id) {
+            return $this->usersData->getAnuidadesDevedoras($id);
+        }
     }
 ?>

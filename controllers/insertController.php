@@ -13,10 +13,10 @@
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $nome = $_POST['nome'];
                     $cpf = $_POST['cpf'];
-                    $data = $_POST['data'];
+                    $ano = $_POST['ano'];
                     $email = $_POST['email'];
                     $senha = $_POST['senha'];
-                    $this->insertNegocio->registrar($nome, $cpf, $data, $email, $senha);
+                    $this->insertNegocio->registrar($nome, $cpf, $ano, $email, $senha);
                 }
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();

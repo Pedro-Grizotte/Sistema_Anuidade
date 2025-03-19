@@ -11,12 +11,8 @@
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $ano = $_POST['ano'];
                     $valor = $_POST['valor'];
-                    session_start();
-                    if ($this->anuidadeNegocio->registrarAnuidade($ano, $valor)) {
-                        header("../views/payments.php");
-                    } else {
-                        echo "Error ao registrar Anuidade";
-                    }
+                    header("http://localhost/PHP/Projetos/Sistema_Anuidade/views/payments.php");
+                    return $this->anuidadeNegocio->registrarAnuidade($ano, $valor);
                 }
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();
@@ -34,6 +30,18 @@
                 $anuidade = $this->anuidadeNegocio->getAnuidade();
                 return $anuidade;
             } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+
+        public function editAnuidade() {
+            try {
+                if($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $ano = (int)$_POST['Ano'];
+                    $valor = (int)$_POST['Valor'];
+                    return $this->anuidadeNegocio->editAnuidade($ano, $valor);
+                }
+            } catch(PDOException $e) {  
                 echo "Error: " . $e->getMessage();
             }
         }

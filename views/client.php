@@ -1,5 +1,12 @@
 <?php
     session_start();
+    require_once '../controllers/usersController.php';
+    $controller = new UsersController();
+    $id = $_SESSION['id'];
+    $nome = $_SERVER['nome'];
+    $controller->getAnuidadesUsuarios($id);
+    $controller->getAnuidadesDevedoras($id);
+    $anuidades = $controller->getAnuidade();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Anuidade</title>
-    <link rel="stylesheet" href="../wwwroot/css/style_dashboard.css">
+    <link rel="stylesheet" href="../wwwroot/css/style_user.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -17,7 +24,7 @@
                 <a href="./client.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Payments">
-                <a href="./payments.php"><ion-icon name="card-outline"></ion-icon></a>
+                <a href=""><ion-icon name="card-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Settings">
                 <a href=""><ion-icon name="settings-outline"></ion-icon></a>
@@ -26,7 +33,7 @@
                 <a href=""><ion-icon name="information-circle-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Logout">
-                <ion-icon name="close-outline"></ion-icon>
+                <a href="../public/index.php"><ion-icon name="close-outline"></ion-icon></a>
             </div>
         </div>
 
@@ -38,7 +45,52 @@
                     <input type="text" placeholder="Search" />
                 </div>
             </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                  <h3>Anuidades</h3>
+                  <div class="stat-value">
+                    <?php echo $controller->getAnuidadesUsuarios($id); ?>
+                  </div>
+                </div>
+                <div class="stat-card">
+                  <h3>Anuidades Devedoras</h3>
+                  <div class="stat-value">
+                    <?php echo $controller->getAnuidadesDevedoras($id); ?>
+                  </div>
+                </div>
+            </div>
+
             <div class="chart-container">
+                <div class="container my-5">
+                    <h2>Anuidades</h2>
+                    <br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ano</th>
+                                <th>Valor</th>
+                                <th>Inadimplente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if(!empty($anuidades)): ?>
+                                <?php foreach($anuidades as $anuidade): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($anuidade['IDAnuidade']); ?></td>
+                                        <td><?php echo htmlspecialchars($anuidade['Ano']); ?></td>
+                                        <td><?php echo htmlspecialchars($anuidade['Valor']); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="4">Nenhuma anuidade econtrada.</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
