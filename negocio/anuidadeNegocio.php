@@ -36,5 +36,12 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        public function deleteAnuidade($id) {
+            try {
+                return $this->anuidadeData->deleteAnuidade($id);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>

@@ -5,16 +5,11 @@
     $controller->registrarAnuidade();
     $controller->editAnuidade();
     $anuidades = $controller->getAnuidade();
-    
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (isset($_POST['submit'])) {
-            $controller->registrarAnuidade();
-        } elseif(isset($_POST['submit_edit'])) {
-            $controller->editAnuidade();
-        } else {
-            echo "Erro ao realizar ação";
-        }
+    /*
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $controller->deleteAnuidade($id);
     }
+    */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Anuidade</title>
-    <link rel="stylesheet" href="../wwwroot/css/style_payments.css">
+    <link rel="stylesheet" href="../wwwroot/css/style_anuidade.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -74,22 +69,31 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th scope="col">ID</th>
                                 <th scope="col">Ano</th>
                                 <th scope="col">Valor</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $anuidades = $controller->getAnuidade(); ?>
                             <?php if(!empty($anuidades)): ?>
                                 <?php foreach($anuidades as $anuidade): ?>
                                     <tr>
+                                        <td><?php echo $anuidade['IDAnuidade']; ?></td>
                                         <td><?php echo htmlspecialchars($anuidade['Ano']); ?></td>
                                         <td><?php echo "R$ " . htmlspecialchars($anuidade['Valor']); ?></td>
                                         <td>
-                                            <button id="editBtn" onclick="openEditPopup()" class="btn btn-outline-success btn-sm turned-button">Editar</button>
-                                            <button id="deleteBtn" onclick="openDeletePopup()" class="btn btn-danger btn-sm">Excluir</button>
+                                            <form action="" method="POST" style="display: inline;">
+                                                <input type="hidden" name="ano" value="<?php echo $anuidade['Ano']; ?>">
+                                                <button type="submit" name="submit_edit" value="<?php $anuidade['Ano'] ?>" class="btn btn-outline-secondary btn-sm">Editar</button>
+                                            </form>
+                                            <form action="./payments.php" method="POST" style="display: inline;">
+                                                <input type="hidden" name="idexclusao" value="<?php echo $anuidade['IDAnuidade']; ?>">
+                                                <button type="submit" name="submit_delete" value="<?php $anuidade['IDAnuidade']; ?>" class="btn btn-danger btn-sm">Excluir</button>
+                                            </form>
                                         </td>
-                                    </tr>
+                                    </tr>                                       
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
@@ -99,35 +103,6 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="editPopup" style="display: none;">
-                    <span class="icon-close">
-                        <ion-icon name="close-outline" onclick="closeEditPopup()"></ion-icon>
-                    </span>
-                    <div class="form-box edit">
-                        <form action="" method="POST">
-                            <h2>Editar Anuidade</h2>
-                            <input type="hidden" name="ano" value="<?php echo $anuidade['Ano']; ?>">
-                            <div class="input-box">
-                                <input type="number" name="valor" placeholder="valor" required>
-                                <i><ion-icon name="logo-usd"></ion-icon></i>
-                            </div>
-                            <button type="submit" name="submit_edit" class="btn_anuidade">Editar</button>
-                        </form>
-                    </div>
-                </div>
-                <div id="deletePopup" style="display: none;">
-                    <span class="icon-close">
-                        <ion-icon name="close-outline" onclick="closeDeletePopup()"></ion-icon>
-                    </span>
-                    <div class="form-box delete">
-                        <form class="formulario-box" action="" method="POST">
-                            <h2>Excluir Anuidade</h2>
-                            <label>Tem certeza que deseja excluir a anuidade?</label>
-                            <button type="submit" name="submit_delete" class="btn_excluir">Excluir</button>
-                        </form>
-                    </div>
-                </div>
-                <div id="overlay"></div>
             </div>
         </div>
     </div>

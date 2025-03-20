@@ -21,5 +21,14 @@
         public function getAnuidadesDevedoras($id) {
             return $this->usersData->getAnuidadesDevedoras($id);
         }
+        public function getAnuidadesPagas($id) {
+            return $this->usersData->getAnuidadesPagas($id);
+        }
+        public function getCheckout($id) {
+            return $this->usersData->getCheckout($id);
+        }
+        public function getHistorico($id) {
+            return $this->usersData->getHistorico($id);
+        }
     }
 ?>

@@ -48,5 +48,39 @@
                 echo 'Error: ' . $e->getMessage();
             }
         }
+        public function getAnuidadesPagas($id) {
+            try {
+                $stmt = $this->database->query("select count(AssociadoID) from AnuidadeAssociados where AssociadoID = ".$id." and Pago = 1");
+                return $stmt->fetchColumn();
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
+        public function getCheckout($id) {
+            try {
+                $stmt = $this->database->query("
+                    select AA.Ano, A.Valor, AA.Pago
+                    from AnuidadeAssociados as AA
+                    join Anuidade as A on A.Ano = AA.Ano
+                    where AssociadoID = ".$id." && Pago = 0
+                ");
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
+        public function getHistorico($id) {
+            try {
+                $stmt = $this->database->query("
+                    select AA.Ano, A.Valor, AA.Pago
+                    from AnuidadeAssociados as AA
+                    join Anuidade as A on A.Ano = AA.Ano
+                    where AssociadoID = ".$id." && Pago = 1
+                ");
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
     }
 ?>

@@ -41,14 +41,22 @@
                 echo 'Error ao obter anuidade: ' . $e->getMessage();
             }
         }
-        public function editAnuidade($ano, $valor) {
+        public function editAnuidade($valor, $ano) {
             try {
                 $stmt = $this->database->prepare("UPDATE Anuidade SET Valor = ? WHERE Ano = ?");
-                $stmt->bindValue(1, $ano);
-                $stmt->bindValue(2, $valor);
+                $stmt->bindValue(1, $valor);
+                $stmt->bindValue(2, $ano);
                 $stmt->execute();
             } catch(PDOException $e) {
                 echo 'Error ao editar anuidade: ' . $e->getMessage();
+            }
+        }
+        public function deleteAnuidade($id) {
+            try {
+                $stmt = $this->database->prepare("DELETE FROM Anuidade WHERE IDAnuidade = ".$id."");
+                $stmt->execute();
+            } catch(PDOException $e) {
+                echo 'Error ao deletar anuidade: ' . $e->getMessage();
             }
         }
     }

@@ -43,3 +43,7 @@ function closeDeletePopup() {
     document.getElementById('deletePopup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }
+
+function deleteAnuidade() {
+    
+}

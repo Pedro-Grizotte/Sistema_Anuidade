@@ -47,5 +47,28 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        public function getAnuidadesPagas($id) {
+            try {
+                session_start();
+                $id = $_SESSION['id'];
+                return $this->usersNegocio->getAnuidadesPagas($id);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+        public function getCheckout($id) {
+            try {
+                return $this->usersNegocio->getCheckout($id);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+        public function getHistorico($id) {
+            try {
+                return $this->usersNegocio->getHistorico($id);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>
