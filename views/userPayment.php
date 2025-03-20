@@ -85,9 +85,10 @@
                         </tbody>
                     </table>
                 </div>
-
+                
                 <div class="container my-5">
                     <h2>Checkout</h2>
+                    <form action="" method="POST">
                     <table class="table">
                         <thead>
                             <tr>
@@ -102,7 +103,7 @@
                                 <form action="" method="POST">
                                     <?php foreach($checkouts as $checkout): ?>
                                         <tr>
-                                            <td><input type="checkbox" class="get-value" value="boleto"></td>
+                                            <td><input type="checkbox" class="get-value" data-valor="<?php echo $checkout['Valor']; ?>" onchange="calcularTotal()"></td>
                                             <td><?php echo $checkout['Ano']; ?></td>
                                             <td><?php echo $checkout['Valor']; ?></td>
                                             <td class="coluna-checkout"><?php $checkout['Pago']; ?>Expirado</td>
@@ -117,17 +118,14 @@
                             <?php endif; ?>
                         </tbody>
                     </table>
-                </div>
-
-                <div class="checkout-total">
-                    <form action="" method="POST">
-                        <div class="checkout-box">
-                            <h2>Total</h2>
-                            <p>Valor total: R$ 650,00</p>
-                            <button type="submit" class="btn_pagar">Pagar Boleto</button>
-                        </div>
+                    <div class="checkout-box">
+                        <h2>Total</h2>
+                        <p>Valor total: R$ 0,00</p>
+                        <input type="hidden" name="id">
+                        <button type="submit" class="btn_pagar">Pagar Boleto</button>
+                    </div>
                     </form>
-                </div>
+                </div>           
             </div>
         </div>
     </div>

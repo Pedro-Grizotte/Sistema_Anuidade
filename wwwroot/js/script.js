@@ -44,22 +44,14 @@ function closeDeletePopup() {
     document.getElementById('overlay').style.display = 'none';
 }
 
-function gerarBoleto() {
-    $(document).ready(function() {
-        var boletos = [];
-        $('.get-value').each(function() {
-            if($(this).is(":checked")) {
-                boletos.push($(this).val());
-            }
-        });
-        boletos = boletos.toString();
-        $.ajax({
-            URL: "../controllers/usersController.php",
-            method: "POST",
-            data: {boletos: boletos},
-            success: function(data) {
-                $('#result').html(data);
-            }
-        });
+function calcularTotal() {
+    let Total = 0;
+    const checkboxes = document.querySelectorAll('.get-value');
+
+    checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            Total += parseFloat(checkbox.getAttribute('data-valor'));
+        }
     });
+    document.querySelector('.checkout-box p').innerText = 'Valor total: R$ ' + Total.toFixed(2);
 }

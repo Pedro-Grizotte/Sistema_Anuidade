@@ -70,5 +70,13 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        public function pagarBoleto($id) {
+            try {
+                session_start();
+                $id = $_SESSION['id'];
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>

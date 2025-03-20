@@ -82,5 +82,13 @@
                 echo 'Error: ' . $e->getMessage();
             }
         }
+        public function pagarBoleto($id) {
+            try {
+                $stmt = $this->database->query("UPDATE AnuidadeAssociado WHERE IDAnuidadeAssociado = ".$id." set Pago = 1;");
+                return $stmt->execute();
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
     }
 ?>

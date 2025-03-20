@@ -30,5 +30,8 @@
         public function getHistorico($id) {
             return $this->usersData->getHistorico($id);
         }
+        public function pagarBoleto($id) {
+            return $this->usersData->pagarBoleto($id);
+        }
     }
 ?>
