@@ -62,35 +62,7 @@
             </div>
 
             <div class="chart-container">
-                <div class="container my-5">
-                    <h2>Anuidades</h2>
-                    <br>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Ano</th>
-                                <th>Valor</th>
-                                <th>Inadimplente</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if(!empty($anuidades)): ?>
-                                <?php foreach($anuidades as $anuidade): ?>
-                                    <tr>
-                                        <td><?php echo htmlspecialchars($anuidade['IDAnuidade']); ?></td>
-                                        <td><?php echo htmlspecialchars($anuidade['Ano']); ?></td>
-                                        <td><?php echo htmlspecialchars($anuidade['Valor']); ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <tr>
-                                    <td colspan="4">Nenhuma anuidade econtrada.</td>
-                                </tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
-                </div>
+                
             </div>
         </div>
     </div>

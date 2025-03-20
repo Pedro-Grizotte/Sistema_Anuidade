@@ -99,14 +99,17 @@
                         </thead>
                         <tbody>
                             <?php if(!empty($checkouts)): ?>
-                                <?php foreach($checkouts as $checkout): ?>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><?php echo $checkout['Ano']; ?></td>
-                                        <td><?php echo $checkout['Valor']; ?></td>
-                                        <td class="coluna-checkout"><?php $checkout['Pago']; ?>Expirado</td>
-                                    </tr> 
-                                <?php endforeach; ?>
+                                <form action="" method="POST">
+                                    <?php foreach($checkouts as $checkout): ?>
+                                        <tr>
+                                            <td><input type="checkbox" class="get-value" value="boleto"></td>
+                                            <td><?php echo $checkout['Ano']; ?></td>
+                                            <td><?php echo $checkout['Valor']; ?></td>
+                                            <td class="coluna-checkout"><?php $checkout['Pago']; ?>Expirado</td>
+                                        </tr> 
+                                    <?php endforeach; ?>
+                                    <button type="submit" onclick="gerarBoleto()" class="btn btn-danger btn-sm" style="float: right;">Gerar Boleto</button>
+                                </form>
                             <?php else: ?>
                                 <tr>
                                     <td colspan="4">Nenhum registro encontrado</td>
@@ -114,6 +117,16 @@
                             <?php endif; ?>
                         </tbody>
                     </table>
+                </div>
+
+                <div class="checkout-total">
+                    <form action="" method="POST">
+                        <div class="checkout-box">
+                            <h2>Total</h2>
+                            <p>Valor total: R$ 650,00</p>
+                            <button type="submit" class="btn_pagar">Pagar Boleto</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
