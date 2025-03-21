@@ -1,0 +1,49 @@
+Requisitos do Sistema
+
+PHP: 8.4.5
+MySQL: 8.0.28
+XAMPP: Instalado em seu computador
+Porta padrão PHP: localhost:8000
+Passo a Passo para macOS
+
+Instalação do Homebrew (se ainda não tiver):
+
+Abra o Terminal e execute o seguinte comando:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Instalação do XAMPP:
+Execute o comando abaixo no Terminal:
+brew install --cask xampp
+
+Iniciar o XAMPP:
+Após a instalação, você pode iniciar o XAMPP através do Launchpad ou pelo Terminal com:
+open /Applications/XAMPP/xamppfiles/xampp
+
+Configuração do PHP e MySQL:
+Certifique-se de que o PHP 8.4.5 e o MySQL 8.0.28 estão configurados corretamente no painel do XAMPP.
+
+Acessar a Aplicação:
+Abra o navegador e digite http://localhost:8000 para acessar a aplicação.
+
+Passo a Passo para Windows
+Download do XAMPP:
+Acesse o site oficial do XAMPP: Apache Friends e baixe a versão mais recente que suporte PHP 8.4.5.
+
+Instalação do XAMPP:
+Execute o instalador e siga as instruções na tela. Durante a instalação, certifique-se de selecionar o PHP e o MySQL.
+
+Iniciar o XAMPP:
+Após a instalação, abra o Painel de Controle do XAMPP e inicie os serviços do Apache e MySQL.
+
+Configuração do PHP:
+Verifique se a versão do PHP está correta no painel do XAMPP.
+
+Acessar a Aplicação:
+Abra o navegador e digite http://localhost:8000 para acessar a aplicação.
+
+# Aviso Final: 
+Lembre que após pegar o arquivo .zip do GitHub, 
+você deve executar este comando no terminal do VScode:
+php -S localhost:8000
+pois está é uma aplicação Web, portanto deve estar sempre 
+rodando nesta porta do XAMPP
