@@ -69,7 +69,8 @@
         }
         public function pagarBoleto($id) {
             try {
-                $id = $_SESSION['id'];
+                $this->usersNegocio->pagarBoleto($id);
+                header("../views/userPayment.php");
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }

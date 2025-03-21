@@ -46,9 +46,9 @@
             $anuidades->deleteAnuidade($id);
         }
         public function pagarAnuidades($ids) {
-            $anuidades = new AnuidadeController();
+            $usuario = new UsersController();
             foreach ($ids as $id) {
-                $anuidades->processarAnuidades($id);
+                $usuario->pagarBoleto($id);
             }
             exit();
         }

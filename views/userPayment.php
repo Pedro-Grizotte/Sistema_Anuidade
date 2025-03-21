@@ -108,7 +108,7 @@
                                 <?php foreach($checkouts as $checkout): ?>
                                     <tr>
                                         <td>
-                                            <input type="checkbox" class="get-value" data-valor="<?php echo $checkout['Valor']; ?>" data-id="<?php echo $checkout['IDAnuidade'];?>" onchange="calcularTotal()">
+                                            <input type="checkbox" class="get-value" data-valor="<?php echo $checkout['Valor']; ?>" data-id="<?php echo $checkout['IDAnuidadeAssociados']; ?>" onchange="calcularTotal()">
                                         </td>
                                         <td><?php echo $checkout['Ano']; ?></td>
                                         <td><?php echo $checkout['Valor']; ?></td>
@@ -125,7 +125,7 @@
                     <div class="checkout-box">
                         <h2>Total</h2>
                         <p>Valor total: R$ 0,00</p>
-                        <input type="hidden" name="ids" id="selected_ids" value="<?php ?>">
+                        <input type="hidden" name="ids" id="selected_ids" value="">
                         <button type="submit" class="btn_pagar">Pagar Boleto</button>
                     </div>
                     </form>

@@ -59,7 +59,7 @@
         public function getCheckout($id) {
             try {
                 $stmt = $this->database->query("
-                    select A.IDAnuidade, AA.Ano, A.Valor, AA.Pago
+                    select AA.IDAnuidadeAssociados, AA.Ano, A.Valor, AA.Pago
                     from AnuidadeAssociados as AA
                     join Anuidade as A on A.Ano = AA.Ano
                     where AssociadoID = ".$id." && Pago = 0
@@ -84,7 +84,8 @@
         }
         public function pagarBoleto($id) {
             try {
-                $stmt = $this->database->query("UPDATE AnuidadeAssociado WHERE IDAnuidadeAssociado = ".$id." set Pago = 1;");
+                $stmt = $this->database->prepare("UPDATE AnuidadeAssociados SET Pago = 1 WHERE AssociadoID = :id");
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 return $stmt->execute();
             } catch(PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
