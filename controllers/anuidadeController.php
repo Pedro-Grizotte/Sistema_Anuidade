@@ -53,5 +53,15 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        public function processarAnuidades($id) {
+            try {
+                if($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $this->anuidadeNegocio->processarAnuidades($id);
+                    header("Location: ../views/userPayment.php");
+                }
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>

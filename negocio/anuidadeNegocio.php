@@ -43,5 +43,12 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        public function processarAnuidades($id) {
+            try {
+                return $this->anuidadeData->processarAnuidades($id);
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 ?>

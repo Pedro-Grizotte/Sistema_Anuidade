@@ -59,5 +59,13 @@
                 echo 'Error ao deletar anuidade: ' . $e->getMessage();
             }
         }
+        public function processarAnuidades($id) {
+            try {
+                $stmt = $this->database->prepare("UPDATE AnuidadeAssociado WHERE IDAnuidadeAssociados = ".$id." SET Pago = 1;");
+                $stmt->execute();
+            } catch(PDOException $e) {
+                echo 'Error ao processar anuidades: ' . $e->getMessage();
+            }
+        }
     }
 ?>

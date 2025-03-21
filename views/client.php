@@ -35,7 +35,7 @@
 
         <div class="main-content">
             <div class="header">
-                <h1><?php echo $_SESSION['nome']; ?></h1>
+                <h1>Bem vindo!</h1>
                 <div class="search-bar">
                     <span>🔍</span>
                     <input type="text" placeholder="Search" />
@@ -58,7 +58,21 @@
             </div>
 
             <section class="chart-container">
-                
+                <div class="container my-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">News</th>
+                                <th scope="col">Info</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="main-content">
+                    <h3>Nome: <?php echo $_SESSION['nome']; ?></h3>
+                    <p>E-mail: <?php  ?></p>
+                    <p>CPF: <?php ?></p>
+                </div>
             </section>
         </div>
     </div>

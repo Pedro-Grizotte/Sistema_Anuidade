@@ -47,11 +47,14 @@ function closeDeletePopup() {
 function calcularTotal() {
     let Total = 0;
     const checkboxes = document.querySelectorAll('.get-value');
+    const selectedIds = [];
 
     checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
             Total += parseFloat(checkbox.getAttribute('data-valor'));
+            selectedIds.push(checkbox.getAttribute('data-id'));
         }
     });
     document.querySelector('.checkout-box p').innerText = 'Valor total: R$ ' + Total.toFixed(2);
+    document.getElementById('selected_ids').value = selectedIds.join(',');
 }

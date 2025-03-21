@@ -45,6 +45,13 @@
             $anuidades = new AnuidadeController();
             $anuidades->deleteAnuidade($id);
         }
+        public function pagarAnuidades($ids) {
+            $anuidades = new AnuidadeController();
+            foreach ($ids as $id) {
+                $anuidades->processarAnuidades($id);
+            }
+            exit();
+        }
         public function getAnuidadesUsuarios($id) {
             $usuarios = new UsersController();
             echo $usuarios->getAnuidadesUsuarios($id);

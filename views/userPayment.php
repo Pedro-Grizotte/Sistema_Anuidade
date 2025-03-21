@@ -1,12 +1,17 @@
 <?php
     require_once '../controllers/usersController.php';
     require_once '../controllers/anuidadeController.php';
+    require_once '../configuration/routes.php';
     session_start();
+    $routes = new RoutesController();
     $controller = new UsersController();
     $id = $_SESSION["id"];
     $checkouts = $controller->getCheckout($id);
     $historicos = $controller->getHistorico($id);
-    
+    if (isset($_POST['ids'])) {
+        $ids = explode(',', $_POST['ids']);
+        $routes->pagarAnuidades($ids);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,17 +105,16 @@
                         </thead>
                         <tbody>
                             <?php if(!empty($checkouts)): ?>
-                                <form action="" method="POST">
-                                    <?php foreach($checkouts as $checkout): ?>
-                                        <tr>
-                                            <td><input type="checkbox" class="get-value" data-valor="<?php echo $checkout['Valor']; ?>" onchange="calcularTotal()"></td>
-                                            <td><?php echo $checkout['Ano']; ?></td>
-                                            <td><?php echo $checkout['Valor']; ?></td>
-                                            <td class="coluna-checkout"><?php $checkout['Pago']; ?>Expirado</td>
-                                        </tr> 
-                                    <?php endforeach; ?>
-                                    <button type="submit" onclick="gerarBoleto()" class="btn btn-danger btn-sm" style="float: right;">Gerar Boleto</button>
-                                </form>
+                                <?php foreach($checkouts as $checkout): ?>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="get-value" data-valor="<?php echo $checkout['Valor']; ?>" data-id="<?php echo $checkout['IDAnuidade'];?>" onchange="calcularTotal()">
+                                        </td>
+                                        <td><?php echo $checkout['Ano']; ?></td>
+                                        <td><?php echo $checkout['Valor']; ?></td>
+                                        <td class="coluna-checkout"><?php echo $checkout['Pago'] ? 'Pago' : 'Expirado'; ?></td>
+                                    </tr> 
+                                <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
                                     <td colspan="4">Nenhum registro encontrado</td>
@@ -121,7 +125,7 @@
                     <div class="checkout-box">
                         <h2>Total</h2>
                         <p>Valor total: R$ 0,00</p>
-                        <input type="hidden" name="id">
+                        <input type="hidden" name="ids" id="selected_ids" value="<?php ?>">
                         <button type="submit" class="btn_pagar">Pagar Boleto</button>
                     </div>
                     </form>

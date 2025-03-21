@@ -14,6 +14,7 @@
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $email = $_POST['email'];
                     $senha = $_POST['senha'];
+                    $cpf = $_POST['cpf'];
                     if($this->validateNegocio->authenticacao($email, $senha)) {
                         // Se a autenticação for bem sucedida, redireciona para
                         // a página de client.php
@@ -21,6 +22,8 @@
                         session_start();
                         $_SESSION['id'] = $user['IDAssociados'];
                         $_SESSION['nome'] = $user['Nome'];
+                        $_SESSION['email'] = $user['Email'];
+                        $_SESSION['cpf'] = $user['CPF'];
                         if ($email == 'admin@gmail.com') {
                             header("Location: ../views/admin.php");
                         } else {

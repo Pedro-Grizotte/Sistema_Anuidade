@@ -59,7 +59,7 @@
         public function getCheckout($id) {
             try {
                 $stmt = $this->database->query("
-                    select AA.Ano, A.Valor, AA.Pago
+                    select A.IDAnuidade, AA.Ano, A.Valor, AA.Pago
                     from AnuidadeAssociados as AA
                     join Anuidade as A on A.Ano = AA.Ano
                     where AssociadoID = ".$id." && Pago = 0
