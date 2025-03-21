@@ -48,9 +48,9 @@
         public function pagarAnuidades($ids) {
             $usuario = new UsersController();
             foreach ($ids as $id) {
+                var_dump($id);
                 $usuario->pagarBoleto($id);
             }
-            exit();
         }
         public function getAnuidadesUsuarios($id) {
             $usuarios = new UsersController();

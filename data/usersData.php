@@ -84,7 +84,7 @@
         }
         public function pagarBoleto($id) {
             try {
-                $stmt = $this->database->prepare("UPDATE AnuidadeAssociados SET Pago = 1 WHERE AssociadoID = :id");
+                $stmt = $this->database->prepare("UPDATE AnuidadeAssociados SET Pago = 1 WHERE IDAnuidadeAssociados = :id");
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 return $stmt->execute();
             } catch(PDOException $e) {
