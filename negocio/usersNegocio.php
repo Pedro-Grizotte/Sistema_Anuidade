@@ -33,5 +33,8 @@
         public function pagarBoleto($id) {
             return $this->usersData->pagarBoleto($id);
         }
+        public function getUsuarioStatus($id) {
+            return $this->usersData->getUsuarioStatus($id);
+        }
     }
 ?>

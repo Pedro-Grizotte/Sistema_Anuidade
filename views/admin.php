@@ -69,7 +69,7 @@
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>CPF</th>
-                                <th>Inadimplente</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,6 +79,7 @@
                                         <td><?php echo htmlspecialchars($user['ID']); ?></td>
                                         <td><?php echo htmlspecialchars($user['NOME']); ?></td>
                                         <td><?php echo htmlspecialchars($user['CPF']); ?></td>
+                                        <td><?php echo $controller->getUsuarioStatus($user['ID']); ?></td>   
                                     </tr>
                                 <?php  endforeach; ?>
                             <?php else: ?>

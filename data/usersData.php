@@ -91,5 +91,19 @@
                 echo 'Error: ' . $e->getMessage();
             }
         }
+        public function getUsuarioStatus($id) {
+            try {
+                $stmt = $this->database->query("
+                    SELECT 
+	                    CASE 
+		                    WHEN COUNT(*) = SUM(IF(Pago, 1, 0)) THEN 'adimplente' ELSE 'inadimplente' 
+	                    END 
+	                    AS Status FROM AnuidadeAssociados WHERE AssociadoID = ".$id."
+                ");
+                return $stmt->fetchColumn();
+            } catch(PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
     }
 ?>

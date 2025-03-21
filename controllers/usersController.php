@@ -70,7 +70,14 @@
         public function pagarBoleto($id) {
             try {
                 $this->usersNegocio->pagarBoleto($id);
-                header("../views/userPayment.php");
+                header("Location: ../views/userPayment.php");
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+        public function getUsuarioStatus($id) {
+            try {
+                return $this->usersNegocio->getUsuarioStatus($id);    
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }
