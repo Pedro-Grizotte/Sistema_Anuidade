@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Se a URL não for encontrada, redirecione para a página de index.php;
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php [QSA,L]
