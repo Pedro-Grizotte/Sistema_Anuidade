@@ -1,10 +1,30 @@
 <?php
     session_start();
     require_once '../controllers/anuidadeController.php';
+    require_once '../configuration/routes.php';
+
     $controller = new AnuidadeController();
-    $controller->registrarAnuidade();
-    $controller->editAnuidade();
+    $routes = new RoutesController();
     $anuidades = $controller->getAnuidade();
+    $id = null;
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST['id'])) {
+            $id = $_POST['id'];
+        }
+        if(isset($_POST['submit'])) {
+            $routes->registrarAnuidades();
+        } elseif (isset($_POST['submit_edit'])) {
+            $routes->editarAnuidades();
+        } else {
+            if ($id != null) {
+                $routes->deletarAnuidades($id);
+            } else {
+                echo "Id não fornecidos";
+            }
+            
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +65,7 @@
             </div>
             <div class="chart-container">
                 <div class="form-box anuidade">
-                    <form action="./payments.php" method="POST">
+                    <form action="" method="POST">
                         <h2>Registrar Anuidade</h2>
                         <div class="input-box">
                             <input type="number" name="ano" placeholder="Ano" required>
@@ -80,30 +100,10 @@
                                         <td><?php echo "R$ " . htmlspecialchars($anuidade['Valor']); ?></td>
                                         <td>
                                             <button id="editBtn" onclick="openEditPopup()" class="btn btn-outline-success btn-sm turned-button">Editar</button>
-                                            <button id="deleteBtn" onclick="openDeletePopup()" class="btn btn-danger btn-sm">Excluir</button>
-                                            <div id="editPopup" style="display: none;">
-                                                <span class="icon-close">
-                                                    <ion-icon name="close-outline" onclick="closeEditPopup()"></ion-icon>
-                                                </span>
-                                                <div class="form-box edit">
-                                                    <form class="formulario-box" action="" method="POST">
-
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div id="deletePopup" style="display: none;">
-                                                <span class="icon-close">
-                                                    <ion-icon name="close-outline" onclick="closeDeletePopup()"></ion-icon>
-                                                </span>
-                                                <div class="form-box delete">
-                                                    <form class="formulario-box" action="" method="POST">
-                                                        <h2>Excluir Anuidade</h2>
-                                                        <input type="hidden" name="action" value="deleteAnuidade">
-                                                        <input type="number" name="idexclusao" value="<?php echo $anuidade["IDAnuidade"] ?>">
-                                                        <button type="submit" name="submit_delete" class="btn_excluir">Excluir</button>
-                                                    </form>
-                                                </div>
-                                            </div> 
+                                            <form action="" method="POST" style="display: inline;">
+                                                <input type="hidden" name="id" value="<?php echo $anuidade['IDAnuidade']; ?>">
+                                                <button type="submit" name="submit_delete" class="btn btn-danger btn-sm">Excluir</button>
+                                            </form>
                                         </td>
                                     </tr>                                       
                                 <?php endforeach; ?>

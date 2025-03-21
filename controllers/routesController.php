@@ -19,6 +19,12 @@
         public function paymentsPage() {
             require '../views/payments.php';
         }
+        public function paymentsAdmin() {
+            require '../views/payments.php';
+        }
+        public function payments() {
+            require '../views/userPayment.php';
+        }
         public function login() {
             $validacao = new ValidateController();
             $validacao->validacao();
@@ -26,6 +32,18 @@
         public function register() {
             $insert = new InsertController();
             $insert->registrar();
+        }
+        public function registrarAnuidades() {
+            $anuidades = new AnuidadeController();
+            $anuidades->registrarAnuidade();
+        }
+        public function editarAnuidades() {
+            $anuidades = new AnuidadeController();
+            $anuidades->editAnuidade();
+        }
+        public function deletarAnuidades($id) {
+            $anuidades = new AnuidadeController();
+            $anuidades->deleteAnuidade($id);
         }
         public function getAnuidadesUsuarios($id) {
             $usuarios = new UsersController();
@@ -42,12 +60,6 @@
         public function getTotalAnuidades() {
             $anuidades = new AnuidadeController();
             echo $anuidades->getTotalAnuidades();
-        }
-        public function paymentsAdmin() {
-            require '../views/payments.php';
-        }
-        public function payments() {
-            require '../views/userPayment.php';
         }
     }
 ?>

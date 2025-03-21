@@ -12,7 +12,7 @@
                     $ano = $_POST['ano'];
                     $valor = $_POST['valor'];
                     $this->anuidadeNegocio->registrarAnuidade($ano, $valor);
-                    header("http://localhost/PHP/Projetos/Sistema_Anuidade/views/payments.php");
+                    header("Location: ../views/payments.php");
                 }
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();
@@ -37,8 +37,8 @@
         public function editAnuidade() {
             try {
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $valor = (int)$_POST['Valor'];
-                    $ano = (int)$_POST['Ano'];
+                    $valor = $_POST['Valor'];
+                    $ano = $_POST['Ano'];
                     return $this->anuidadeNegocio->editAnuidade($valor, $ano);
                 }
             } catch(PDOException $e) {  
@@ -47,10 +47,9 @@
         }
         public function deleteAnuidade($id) {
             try {
-                if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_delete"])) {
-                    $id = $_POST["submit_delete"];
+                if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $this->anuidadeNegocio->deleteAnuidade($id);
-                    header("http://localhost/PHP/Projetos/Sistema_Anuidade/views/payments.php");
+                    header("Location: ../views/payments.php");
                 }
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();
