@@ -15,14 +15,19 @@
         if(isset($_POST['submit'])) {
             $routes->registrarAnuidades();
         } elseif (isset($_POST['submit_edit'])) {
-            $routes->editarAnuidades();
+            if (isset($_POST['ano']) && isset($_POST['valor'])) {
+                $ano = $_POST['ano'];
+                $valor = $_POST['valor'];
+                $routes->editarAnuidades($valor, $ano);
+            } else {
+                echo "Dados insuficientes!";
+            }
         } else {
             if ($id != null) {
                 $routes->deletarAnuidades($id);
             } else {
                 echo "Id não fornecidos";
             }
-            
         }
     }
 ?>
@@ -99,9 +104,23 @@
                                         <td><?php echo htmlspecialchars($anuidade['Ano']); ?></td>
                                         <td><?php echo "R$ " . htmlspecialchars($anuidade['Valor']); ?></td>
                                         <td>
-                                            <button id="editBtn" onclick="openEditPopup()" class="btn btn-outline-success btn-sm turned-button">Editar</button>
                                             <form action="" method="POST" style="display: inline;">
                                                 <input type="hidden" name="id" value="<?php echo $anuidade['IDAnuidade']; ?>">
+                                                <input type="hidden" name="ano" value="<?php echo $anuidade['Ano']; ?>">
+                                                <input type="number" name="valor" placeholder="Valor: " style="
+                                                    display: inline;
+                                                    padding: 1px;
+                                                    width: 150px;
+                                                    border-radius: 5px;
+                                                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                                                    transition: all 0.3s ease;
+                                                    border: 2px solid transparent;
+                                                " required>
+                                                <button type="submit" name="submit_edit" class="btn btn-outline-success btn-sm">Editar</button>
+                                            </form>
+                                            <form action="" method="POST" style="display: inline;">
+                                                <input type="hidden" name="id" value="<?php echo $anuidade['IDAnuidade']; ?>">
+                                                <input type="number" name="ano" value="<?php echo $anuidade['Ano']; ?>" style="display: none;">
                                                 <button type="submit" name="submit_delete" class="btn btn-danger btn-sm">Excluir</button>
                                             </form>
                                         </td>

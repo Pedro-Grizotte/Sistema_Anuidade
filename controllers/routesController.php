@@ -37,9 +37,9 @@
             $anuidades = new AnuidadeController();
             $anuidades->registrarAnuidade();
         }
-        public function editarAnuidades() {
+        public function editarAnuidades($valor, $ano) {
             $anuidades = new AnuidadeController();
-            $anuidades->editAnuidade();
+            $anuidades->editAnuidade($valor, $ano);
         }
         public function deletarAnuidades($id) {
             $anuidades = new AnuidadeController();

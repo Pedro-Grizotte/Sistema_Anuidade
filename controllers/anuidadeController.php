@@ -34,11 +34,9 @@
             }
         }
 
-        public function editAnuidade() {
+        public function editAnuidade($valor, $ano) {
             try {
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $valor = $_POST['Valor'];
-                    $ano = $_POST['Ano'];
                     return $this->anuidadeNegocio->editAnuidade($valor, $ano);
                 }
             } catch(PDOException $e) {  
