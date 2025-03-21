@@ -33,7 +33,7 @@
                 <a href=""><ion-icon name="information-circle-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Logout">
-                <a href="../public/index.php"><ion-icon name="close-outline"></ion-icon></a>
+                <a href="/"><ion-icon name="close-outline"></ion-icon></a>
             </div>
         </div>
 

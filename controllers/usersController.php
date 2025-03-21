@@ -31,7 +31,6 @@
         }
         public function getAnuidadesUsuarios($id) {
             try {
-                session_start();
                 $id = $_SESSION['id'];
                 return $this->usersNegocio->getAnuidadeUsuarios($id);
             } catch(PDOException $e) {
@@ -40,7 +39,6 @@
         }
         public function getAnuidadesDevedoras($id) {
             try {
-                session_start();
                 $id = $_SESSION['id'];
                 return $this->usersNegocio->getAnuidadesDevedoras($id);
             } catch(PDOException $e) {
@@ -49,7 +47,6 @@
         }
         public function getAnuidadesPagas($id) {
             try {
-                session_start();
                 $id = $_SESSION['id'];
                 return $this->usersNegocio->getAnuidadesPagas($id);
             } catch(PDOException $e) {
@@ -72,7 +69,6 @@
         }
         public function pagarBoleto($id) {
             try {
-                session_start();
                 $id = $_SESSION['id'];
             } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();

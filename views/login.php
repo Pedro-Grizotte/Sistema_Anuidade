@@ -1,8 +1,13 @@
 <?php
-    require_once '../controllers/insertController.php';
-    require_once '../controllers/validateController.php';
-    $controller = new InsertController();
-    $validacao = new ValidateController();
+    require_once '../configuration/routes.php';
+    $routes = new RoutesController();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['submit'])) {
+            $routes->register();
+        } else {
+            $routes->login();
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +57,7 @@
 
             <div class="form-box register">
                 <h2>Cadastro</h2>
-                <form action="index.php" method="POST">
+                <form action="" method="POST">
                     <div class="input-box">
                         <span class="icon"><ion-icon name="person"></ion-icon></span>
                         <input type="text" name="nome" required>

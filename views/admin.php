@@ -1,12 +1,10 @@
 <?php
+    require_once '../configuration/routes.php';
     require_once '../controllers/usersController.php';
-    require_once '../controllers/anuidadeController.php';
-    $controller = new usersController();
-    $anuidadeController = new anuidadeController();
-    session_start();
-    $controller->getTotalUsers();
+    $routes = new RoutesController();
+    $controller = new UsersController();    
     $users = $controller->getUsers();
-    $anuidadeController->getTotalAnuidades();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +22,7 @@
                 <a href="./admin.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Payments">
-                <a href="./payments.php"><ion-icon name="card-outline"></ion-icon></a>
+                <a href="../views/payments.php"><ion-icon name="card-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Settings">
                 <a href=""><ion-icon name="settings-outline"></ion-icon></a>
@@ -33,7 +31,7 @@
                 <a href=""><ion-icon name="information-circle-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Logout">
-                <a href="../public/index.php"><ion-icon name="close-outline"></ion-icon></a>
+                <a href="/"><ion-icon name="close-outline"></ion-icon></a>
             </div>
         </div>
 
@@ -50,13 +48,13 @@
                 <div class="stat-card">
                   <h3>Total de Associados</h3>
                   <div class="stat-value">
-                    <?php echo $controller->getTotalUsers(); ?>
+                    <?php echo $routes->getTotalUsers(); ?>
                   </div>
                 </div>
                 <div class="stat-card">
                   <h3>Anuidades</h3>
                   <div class="stat-value">
-                    <?php echo $anuidadeController->getTotalAnuidades(); ?>
+                    <?php echo $routes->getTotalAnuidades(); ?>
                   </div>
                 </div>
             </div>

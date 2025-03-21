@@ -19,10 +19,10 @@
     <div class="dashboard">
         <div class="sidebar">
             <div class="sidebar-icon active" data-tooltip="Home">
-                <a href="./admin.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
+                <a href="../views/admin.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Payments">
-                <a href="#"><ion-icon name="card-outline"></ion-icon></a>
+                <a href="../views/payments.php"><ion-icon name="card-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Settings">
                 <a href=""><ion-icon name="settings-outline"></ion-icon></a>
@@ -31,7 +31,7 @@
                 <a href=""><ion-icon name="information-circle-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Logout">
-                <a href="../public/index.php"><ion-icon name="close-outline"></ion-icon></a>
+                <a href="/"><ion-icon name="close-outline"></ion-icon></a>
             </div>
         </div>
 

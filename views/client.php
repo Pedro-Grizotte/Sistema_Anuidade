@@ -1,12 +1,8 @@
 <?php
+    require_once '../configuration/routes.php';
+    $routes = new RoutesController();
     session_start();
-    require_once '../controllers/usersController.php';
-    $controller = new UsersController();
     $id = $_SESSION['id'];
-    $nome = $_SERVER['nome'];
-    $controller->getAnuidadesUsuarios($id);
-    $controller->getAnuidadesDevedoras($id);
-    $anuidades = $controller->getAnuidade();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +20,7 @@
                 <a href="./client.php" class="home-icon"><ion-icon name="home-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Payments">
-                <a href="./userPayment.php"><ion-icon name="card-outline"></ion-icon></a>
+                <a href="/views/userPayment.php"><ion-icon name="card-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Settings">
                 <a href=""><ion-icon name="settings-outline"></ion-icon></a>
@@ -33,7 +29,7 @@
                 <a href=""><ion-icon name="information-circle-outline"></ion-icon></a>
             </div>
             <div class="sidebar-icon" data-tooltip="Logout">
-                <a href="../public/index.php"><ion-icon name="close-outline"></ion-icon></a>
+                <a href="/"><ion-icon name="close-outline"></ion-icon></a>
             </div>
         </div>
 
@@ -50,13 +46,13 @@
                 <div class="stat-card">
                   <h3>Anuidades</h3>
                   <div class="stat-value">
-                    <?php echo $controller->getAnuidadesUsuarios($id); ?>
+                    <?php echo $routes->getAnuidadesUsuarios($id); ?>
                   </div>
                 </div>
                 <div class="stat-card">
                   <h3>Anuidades Devedoras</h3>
                   <div class="stat-value">
-                    <?php echo $controller->getAnuidadesDevedoras($id); ?>
+                    <?php echo $routes->getAnuidadesDevedoras($id); ?>
                   </div>
                 </div>
             </div>

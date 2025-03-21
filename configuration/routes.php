@@ -12,8 +12,11 @@
     $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 
     $routes = [
-        '/' => ['routesController', 'index'],
-        '/anuidade' => ['anuidadeController', 'getTotalAnuidades'],
+        '/' => ['RoutesController', 'index'],
+        '/views/client.php' => ['RoutesController', 'client'],
+        '/views/admin.php' => ['RoutesController', 'admin'],
+        '/views/userPayment.php' => ['RoutesController', 'userPayment'],
+        '/views/payments.php' => ['RoutesController', 'paymentsPage']
     ];
 
     if (array_key_exists($request_uri, $routes)) {
@@ -24,7 +27,7 @@
             call_user_func([$instancia, $method]);
         } else {
             http_response_code(404);
-            echo "Erro 404 - Página não encontrada";
+            echo "Erro 404 - Não encontrada";
         }
     } else {
         http_response_code(404);

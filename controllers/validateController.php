@@ -22,7 +22,7 @@
                         $_SESSION['id'] = $user['IDAssociados'];
                         $_SESSION['nome'] = $user['Nome'];
                         if ($email == 'admin@gmail.com') {
-                            header("Location: ../views/admin.php?nome=" . urlencode($user['Nome']));
+                            header("Location: ../views/admin.php");
                         } else {
                             header("Location: ../views/client.php?nome=" . urlencode($user['Nome']));
                         }
