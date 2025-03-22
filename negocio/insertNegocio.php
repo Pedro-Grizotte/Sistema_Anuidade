@@ -22,7 +22,7 @@
             $usuario->setSenha($senhaHash);
             
             $this->insertData->registrar($usuario);
-            $this->insertData->registrarAnuidades($usuario);
+            //$this->insertData->registrarAnuidades($usuario);
             return true;
         }
     }
