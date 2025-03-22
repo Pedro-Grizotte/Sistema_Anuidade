@@ -20,7 +20,10 @@
             $usuario->setAno($ano);
             $usuario->setEmail($email);
             $usuario->setSenha($senhaHash);
-            return $this->insertData->registrar($usuario);
+            
+            $this->insertData->registrar($usuario);
+            $this->insertData->registrarAnuidades($usuario);
+            return true;
         }
     }
 ?>

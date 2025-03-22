@@ -3,12 +3,19 @@
     class UsuariosModel {
         // Minha classe usuário representa a entidade Associados na documentação
 
+        private $id;
         private $nome;
         private $cpf;
         private $ano;
         private $email;
         private $senha;
 
+        public function getID() {
+            return $this->id;
+        }
+        public function setID($id) {
+            $this->id = $id;
+        }
         public function getNome() {
             return $this->nome;
         }

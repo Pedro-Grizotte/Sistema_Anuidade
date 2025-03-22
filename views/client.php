@@ -3,6 +3,8 @@
     $routes = new RoutesController();
     session_start();
     $id = $_SESSION['id'];
+    $email = $_SESSION['email'];
+    $cpf = $_SESSION['cpf'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,10 +70,14 @@
                         </thead>
                     </table>
                 </div>
+                <h3>Nome: <?php echo $_SESSION['nome']; ?></h3>
                 <div class="main-content">
-                    <h3>Nome: <?php echo $_SESSION['nome']; ?></h3>
-                    <p>E-mail: <?php  ?></p>
-                    <p>CPF: <?php ?></p>
+                    <div class="text-box">
+                        <p>E-mail: <?php  echo $_SESSION['email']; ?></p>
+                    </div>
+                    <div class="text-box">
+                        <p>CPF: <?php echo $_SESSION['cpf']; ?></p>
+                    </div>
                 </div>
             </section>
         </div>

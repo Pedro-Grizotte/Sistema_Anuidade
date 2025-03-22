@@ -213,7 +213,7 @@ body {
 
 .chart-container,
 .card {
-  height: 850px;
+  height: 600px;
   background: var(--bg-card);
   border-radius: 16px;
   box-shadow: var(--shadow-md);
